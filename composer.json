@@ -1,0 +1,38 @@
+{
+    "name": "gember/serializer-symfony",
+    "description": "Serializer implementation based on symfony/serializer for gember/event-sourcing",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "event-sourcing",
+        "ddd",
+        "domain-driven-design",
+        "cqrs",
+        "serializer",
+        "symfony"
+    ],
+    "authors": [
+        {
+            "name": "Jeroen de Graaf",
+            "email": "gember@jero.work",
+            "homepage": "https://jero.work"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "symfony/serializer": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gember\\SerializerSymfony\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gember\\SerializerSymfony\\Test\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
