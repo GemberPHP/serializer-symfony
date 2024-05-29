@@ -22,6 +22,14 @@
         "php": "^8.3",
         "symfony/serializer": "^7.0"
     },
+    "require-dev": {
+        "captainhook/captainhook": "^5.23",
+        "friendsofphp/php-cs-fixer": "^3.58",
+        "phpstan/phpstan": "^1.11",
+        "phpunit/phpunit": "^11.1",
+        "rregeer/phpunit-coverage-check": "^0.3.1",
+        "shipmonk/composer-dependency-analyser": "^1.5"
+    },
     "autoload": {
         "psr-4": {
             "Gember\\SerializerSymfony\\": "src/"
@@ -34,5 +42,20 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+        "coverage": "vendor/bin/coverage-check var/coverage/clover.xml 95",
+        "cs": "vendor/bin/php-cs-fixer fix --diff --dry-run --config=.php-cs-fixer.php",
+        "cs:fix": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php",
+        "dependency-analyser": "vendor/bin/composer-dependency-analyser",
+        "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon",
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit",
+        "test": [
+            "@cs",
+            "@dependency-analyser",
+            "@phpstan",
+            "@phpunit",
+            "@coverage"
+        ]
     }
 }
