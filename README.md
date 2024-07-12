@@ -1,2 +1,2 @@
-# 🫚 Gember EventSourcing: Symfony Serializer
-Serializer implementation based on [symfony/serializer](https://github.com/symfony/serializer) for [gember/event-sourcing](https://github.com/GemberPHP/event-sourcing).
+# 🫚 Gember Serializer: Symfony Serializer
+Gember Serializer ([gember/event-sourcing](https://github.com/GemberPHP/event-sourcing)) implementation based on [symfony/serializer](https://github.com/symfony/serializer).
