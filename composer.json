@@ -22,7 +22,7 @@
     "require": {
         "php": "^8.3",
         "gember/event-sourcing": "dev-main",
-        "symfony/serializer": "^7.0"
+        "symfony/serializer": "^7.1"
     },
     "require-dev": {
         "captainhook/captainhook": "^5.23",
