@@ -1,6 +1,6 @@
 {
     "name": "gember/serializer-symfony",
-    "description": "Gember Serializer (gember/event-sourcing) implementation based on symfony/serializer",
+    "description": "Gember Event Sourcing Serializer adapter based on symfony/serializer",
     "license": "MIT",
     "type": "library",
     "keywords": [
