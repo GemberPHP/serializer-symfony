@@ -10,7 +10,7 @@
 ## Installation
 Install with Composer:
 ```bash
-composer require gember/symfony-serializer
+composer require gember/serializer-symfony
 ```
 
 ## Configuration
