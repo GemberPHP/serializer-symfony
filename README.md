@@ -58,7 +58,7 @@ Gember\SerializerSymfony\SymfonySerializer:
 
 Gember\EventSourcing\Util\Serialization\Serializer\SerializableDomainEvent\SerializableDomainEventSerializer: ~
 
-Gember\EventSourcing\Util\Serialization\Serializer\Serializer:
+Gember\DependencyContracts\Util\Serialization\Serializer\Serializer:
   class: Gember\EventSourcing\Util\Serialization\Serializer\Stacked\StackedSerializer
   arguments:
     - [
@@ -69,7 +69,7 @@ Gember\EventSourcing\Util\Serialization\Serializer\Serializer:
 
 Option 2: Bind directly to `Serializer` interface:
 ```yaml
-Gember\EventSourcing\Util\Serialization\Serializer\Serializer:
+Gember\DependencyContracts\Util\Serialization\Serializer\Serializer:
   class: Gember\SerializerSymfony\SymfonySerializer
   arguments:
     - '@serializer' # or any other Symfony Serializer definition of your choice
