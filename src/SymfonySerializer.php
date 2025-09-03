@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Gember\SerializerSymfony;
 
-use Gember\EventSourcing\Util\Serialization\Serializer\Serializer;
+use Gember\DependencyContracts\Util\Serialization\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\SerializerInterface;
 use Override;
