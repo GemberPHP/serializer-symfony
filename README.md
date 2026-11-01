@@ -56,13 +56,13 @@ Gember\SerializerSymfony\SymfonySerializer:
   arguments: 
     - '@serializer' # or any other Symfony Serializer definition of your choice 
 
-Gember\EventSourcing\Util\Serialization\Serializer\SerializableDomainEvent\SerializableDomainEventSerializer: ~
+Gember\EventSourcing\Util\Serialization\Serializer\Interface\SerializableInterfaceSerializer: ~
 
 Gember\DependencyContracts\Util\Serialization\Serializer\Serializer:
   class: Gember\EventSourcing\Util\Serialization\Serializer\Stacked\StackedSerializer
   arguments:
     - [
-        '@Gember\EventSourcing\Util\Serialization\Serializer\SerializableDomainEvent\SerializableDomainEventSerializer',
+        '@Gember\EventSourcing\Util\Serialization\Serializer\Interface\SerializableInterfaceSerializer',
         '@Gember\SerializerSymfony\SymfonySerializer' # added to stack of serializers
     ]
 ```
