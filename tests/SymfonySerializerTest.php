@@ -6,11 +6,13 @@ namespace Gember\SerializerSymfony\Test;
 
 use DateTimeImmutable;
 use DateTimeZone;
+use Gember\DependencyContracts\Util\Serialization\Serializer\SerializationFailedException;
 use Gember\SerializerSymfony\SymfonySerializer;
 use Gember\SerializerSymfony\Test\TestDoubles\TestDto;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -72,5 +74,38 @@ final class SymfonySerializerTest extends TestCase
             ),
             $dto,
         );
+    }
+
+    #[Test]
+    public function itShouldThrowSerializationFailedExceptionWhenPayloadIsInvalidJson(): void
+    {
+        try {
+            $this->serializer->deserialize('{not json', TestDto::class);
+
+            self::fail('Expected a SerializationFailedException');
+        } catch (SerializationFailedException $exception) {
+            self::assertInstanceOf(ExceptionInterface::class, $exception->getPrevious());
+        }
+    }
+
+    #[Test]
+    public function itShouldThrowSerializationFailedExceptionWhenPayloadMissesConstructorArguments(): void
+    {
+        self::expectException(SerializationFailedException::class);
+
+        $this->serializer->deserialize('{"id":"da11f500-ab9b-49e6-96eb-83b9f3669a47"}', TestDto::class);
+    }
+
+    #[Test]
+    public function itShouldThrowSerializationFailedExceptionWhenObjectCannotBeEncoded(): void
+    {
+        self::expectException(SerializationFailedException::class);
+
+        $this->serializer->serialize(new TestDto(
+            'da11f500-ab9b-49e6-96eb-83b9f3669a47',
+            1234,
+            NAN,
+            new DateTimeImmutable('2024-05-29 10:30:00'),
+        ));
     }
 }
